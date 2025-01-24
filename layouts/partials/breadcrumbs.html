@@ -1,0 +1,36 @@
+<header>
+  {{ $.Scratch.Add "path" "" }}
+  <ul class="breadcrumb">
+    <li><a href="/" style="filter: grayscale(1); text-decoration: none; font-size: 1.5rem;">⌂</a></li>
+    {{ range $index, $element := split .RelPermalink "/" }}
+      {{ $.Scratch.Add "path" $element }}
+      {{ $title := replace $element ".html" "" }}
+      {{ $title = replace $title "-" " "}}
+      {{ if ne $title "" }}
+        {{ if eq $index 1 }}
+          {{ if eq $title "day" }}
+            {{ $title = "Programme" }}
+          {{ else if eq $title "person" }}
+            {{ $title = "Team" }}
+          {{ else if eq $title "venue" "room" }}
+            {{ $title = "Venues" }}
+          {{ else if eq $title "registration" }}
+            {{ $title = $title | title }}
+          {{ else if eq $title "impressum" }}
+            {{ $title = $title | title }}
+          {{ else }}
+            {{ $title = printf "%ss" $title | title }}
+          {{ end }}
+        {{ else if eq $index 2 }}
+          {{ if eq $.Page.Params.menu.main.parent "day" }}
+            {{ $title = time.Format "Mon 02 Jan 2006" $.Page.Params.date }}
+          {{ else }}
+            {{ $title = $.Title }}
+          {{ end }}
+        {{ end }}
+        <li><a class="breadcrumbTitle" href='{{ $.Scratch.Get "path" | relURL }}'>{{ $title }}</a></li>
+        {{ $.Scratch.Add "path" "/" }}
+      {{ end }}
+    {{ end }}
+  </ul>
+</header>

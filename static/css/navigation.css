@@ -1,0 +1,139 @@
+
+/*CSS MENU EXAMPLE FROM W3SCHOOLS*/
+
+/* navigation container */
+ .navigation {
+  overflow: hidden;
+  /* background-color: #333; */
+  background-color: #efefef;
+  box-shadow: 0 0 0.4rem rgba(0,0,0,0.15);
+  border-radius: 0.5rem;
+  font-family: Arial;
+  line-height: 1.3;
+  display: flex;
+  flex-direction: row;
+}
+
+/* Links inside the navigation */
+.navigation .dropbtn, .hamburger-icon {
+  float: left;
+  font-size: 1em;
+  /* color: white; */
+  color: black;
+  text-align: center;
+  /* padding: 1em 1.2em; */
+  padding: 0.4em 0.8em;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+/*.dropdown .dropbtn {
+/*  font-size: 16px;
+/*  border: none;
+/*  outline: none;
+/*  color: white;
+/*  padding: 14px 16px;
+/*  background-color: inherit;
+/*  font-family: inherit; /* Important for vertical align on mobile phones */
+/*  margin: 0; /* Important for vertical align on mobile phones */
+/*}
+
+/* Show the dropdown menu on hover (only on desktop, since on mobile the touch event counts as hover).*/
+@media (hover: hover) and (pointer: fine) {
+  .dropdown:hover .dropdown-content, .dropdown:active .dropdown-content {
+    display: block;
+  }
+}
+
+/* Add a background color to navigation links on hover */
+.navigation .dropbtn:hover, .navigation .dropbtn:focus, .dropdown:hover, .dropdown:focus .dropbtn {
+  /* background-color: rgb(99, 182, 63); */
+  /* background-color: #4b545f; */
+  background-color: #ddd;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  /* transform: translateY(3em); */
+  /* transform: translateY(3.3em); */
+  transform: translateY(2.09em);
+  min-width: 10rem;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  /* padding: 0.8em 1.2em; */
+  padding: 0.4em 0.8em;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Position arrow in nav buttons */
+.icon {
+  align-self: center;
+  padding-left: 0.4em;
+  width: 0.65rem;
+  height: 0.65rem;
+}
+
+.hamburger {
+  display: none;
+  background-color: transparent;
+  border: none;
+  /* width: 20%; */
+}
+
+.hamburger-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Used via JavaScript, toggling visibility of dropdown
+ content with this. Necessary for tabbing. */
+.show {
+    display: block;
+}
+
+
+/* CSS for mobile */
+@media screen and (max-width: 600px) {
+  .navigation {
+    flex-direction: column;
+  }
+
+  .dropdown {
+    display: none;
+  }
+
+  .navigation .dropbtn {
+    width: 100%;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}

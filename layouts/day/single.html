@@ -1,0 +1,12 @@
+{{ define "main" }}
+<link rel="stylesheet" property="stylesheet" href="{{ "css/day.css" | relURL }}">
+<main>
+  <article>
+    <header>
+      <h1>{{ .Title }}</h1>
+      {{ $.Scratch.Set "dayId" .Params.defaultMetaFields.sys.id }}
+      {{ partial "day-tracks-list" . }}
+    </header>
+  </article>
+</main>
+{{ end }}

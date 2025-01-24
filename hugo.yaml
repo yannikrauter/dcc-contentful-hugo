@@ -1,0 +1,14 @@
+languageCode: 'en-gb'
+title: 'Hugo Contentful Static - UX Day Graz 2024'
+relativeURLs: true
+disableKinds: ['taxonomy', 'term', 'RSS', 'sitemap']
+sectionPagesMenu: 'main'
+cleanDestinationDir: true
+removePathAccents: true
+
+params:
+  shortTitle: 'UX Day Graz 2024'
+  contactEmail: contact@example.com
+  speakerRoles:
+    - 'Speaker'
+    - 'Keynote Speaker'

@@ -1,0 +1,64 @@
+{{ define "main" }}
+<link rel="stylesheet" property="stylesheet" href="{{ "css/room.css" | relURL }}">
+<main>
+  <article>
+    <header>
+      <h1>{{ .Title }}</h1>
+      {{ range where $.Site.RegularPages "Type" "venue" }}
+        {{ if eq .Params.defaultMetaFields.sys.id $.Params.venue.id }}
+          <h2>Located in <a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        {{ end }}
+      {{ end }}
+      <div id="room-information-container">
+        <div id="room-location">
+          <h4>Location</h4>
+          <p>{{ .Params.location }}</p>
+          <br>
+          <h4>Name</h4>
+          <p>
+            {{ with .Param "name" }}
+              {{ . }}
+            {{ else }}
+              No name provided
+            {{ end }}
+          </p>
+        </div>
+
+        <div id="room-capacity">
+          <h4>Capacity</h4>
+          <p>
+            {{ with .Param "capacity" }}
+              {{ . }}
+            {{ else }}
+              No capacity provided
+            {{ end }}
+          </p>
+        </div>
+
+        <div id="room-wheelchair-accessible">
+          <h4>Wheelchair Accessibility</h4>
+          <p>
+            {{ with .Param "wheelchairAccess" }}
+              {{ if eq . true }}
+                Yes, this room is accessible with a wheelchair.
+              {{ end }}
+            {{ else }}
+              Unfortunately, this room is not accessible with a wheelchair.
+              <br>
+              In case you require special assistance, please reach out to us at <a href="mailto:{{ .Site.Params.contactEmail }}?subject=Accessibility of Room {{ .Title }}">{{ .Site.Params.contactEmail }}</a>.
+            {{ end }}
+          </p>
+        </div>
+      </div>
+    </header>
+    {{ with .Params.description }}
+      <h4>Description:</h4>
+      <div id="description">
+        <p>
+          {{ . | markdownify }}
+        </p>
+      </div>
+    {{ end }}
+  </article>
+</main>
+{{ end }}

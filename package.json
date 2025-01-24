@@ -1,0 +1,13 @@
+{
+  "name": "cssg-for-hugo",
+  "version": "1.0.0",
+  "author": "Yannik Rauter",
+  "license": "MIT",
+  "devDependencies": {
+    "@jungvonmatt/contentful-ssg": "^1.12.3",
+    "del": "^7.1.0",
+    "dotenv": "^16.4.7",
+    "file-system": "^2.2.2",
+    "gulp": "^5.0.0"
+  }
+}

@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' images.ctfassets.net https://*.ctfassets.net; img-src 'self' images.ctfassets.net https://*.ctfassets.net;">
+  <title>{{ .Title }}</title>
+  
+  
+  <script src="{{ "js/standard.js" | relURL }}"></script>
+  
+  
+  <link rel="stylesheet" href="{{ "css/standard.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/navigation.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/breadcrumbs.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/conference.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/standard_modifications.css" | relURL }}">
+  {{/*  {{ range .Params.custom_css }}
+    <link rel="stylesheet" href="{{ . | relURL }}">
+  {{ end }}  */}}
+  <link rel="icon" type="image/x-icon" href="{{ "favicon.ico" | relURL }}">
+  
+  
+  
+</head>
+
+<body>
+  <div id="whole">
+    {{ partial "header" . }}
+    {{ if ne .RelPermalink "/" }}
+      {{ partial "breadcrumbs" . }}
+    {{ end }}
+  
+    {{ block "main" . }}
+    {{ end }}
+  
+    {{ partial "footer" . }}
+  </div>
+</body>
+</html>

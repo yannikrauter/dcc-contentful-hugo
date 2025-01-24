@@ -1,0 +1,84 @@
+{{ define "main" }}
+<link rel="stylesheet" property="stylesheet" href="{{ "css/venue.css" | relURL }}">
+<main>
+  <article>
+    <header>
+      <h1>{{ .Title }}</h1>
+      <div id="venue-information-container">
+        <div id="venue-details">
+          <h4>Web</h4>
+          <p>
+            {{ with .Param "websiteUrl" }}
+              <a href="{{ . }}" target="_blank">{{ . }}</a>
+            {{ else }}
+              No website URL provided
+            {{ end }}
+          </p>
+          <br>
+          <h4>Address</h4>
+          <p>
+            {{ .Params.street }}, {{ .Params.city }}
+            <br>
+            {{ with .Param "googleMapsLink" }}
+              <a href="{{ . }}" target="_blank">Directions on Google Maps</a>
+            {{ else }}
+              No Google Maps link provided
+            {{ end }}
+          </p>
+        </div>
+        
+        <div id="venue-photo-container">
+          {{ with .Param "pictures" }}
+            {{ range . }}
+              <img src="{{ .url }}">
+            {{ end }}
+          {{ else }}
+            <p>No image provided</p>
+          {{ end }}
+        </div>
+      </div>
+    </header>
+
+    {{ with .Params.description }}
+      <h4>Description:</h4>
+      <div id="description">
+        <p>
+          {{ . | markdownify }}
+        </p>
+      </div>
+    {{ end }}
+
+    {{ with .Params.directions }}
+      <h4>Directions:</h4>
+      <div id="directions">
+        <p>
+          {{ . | markdownify }}
+        </p>
+      </div>
+    {{ end }}
+
+    {{ $venueHasRooms := false }}
+    {{ $linkedContentType := "room" }}
+    {{ range $roomElement := where $.Site.RegularPages "Type" $linkedContentType }}
+      {{ if eq $.Params.defaultMetaFields.sys.id $roomElement.Params.venue.id }}
+        {{ $venueHasRooms = true }}
+      {{ end }}
+    {{ end }}
+    {{ if eq $venueHasRooms true }}
+      <h3>
+        {{ $linkedContentType | title}}(s) within this {{ .Params.defaultMetaFields.sys.contentType }}:
+      </h3>
+      <ul class="compact">
+        {{ range $roomElement := where $.Site.RegularPages "Type" $linkedContentType }}
+          {{ if eq $.Params.defaultMetaFields.sys.id $roomElement.Params.venue.id }}
+            {{ $venueHasRooms = true }}
+            <li>
+              <a href="{{ $roomElement.RelPermalink }}">{{ $roomElement.Params.title }}</a>
+            </li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    {{ end }}
+  </article>
+</main>
+{{ end }}

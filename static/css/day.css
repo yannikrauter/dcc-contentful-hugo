@@ -1,0 +1,127 @@
+h1 {
+  text-align: center;
+}
+
+.day-grid-container {
+  display: grid;
+  gap: 1rem;
+
+  /* grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); */
+  /* grid-template-rows: auto repeat(145, minmax(0, 0rem)); */
+  /* grid-template-rows: auto repeat(145, 0.4rem); */
+  grid-template-columns: 5ch auto;
+  grid-template-rows: auto;
+}
+
+.grid-item-background {
+  display: grid;
+  grid-column: auto;
+  grid-row: auto;
+
+  padding: 1rem;
+  background-color: #efefef;
+}
+.grid-item-timeslot {
+  display: grid;
+  grid-column: auto;
+  grid-row: 1 / 146;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: subgrid;
+}
+
+.grid-item-track {
+  display: grid;
+  grid-column: auto;
+  grid-row: 1 / 146;
+  gap: 1rem;
+
+  padding: 1rem;
+  border: 0.1rem solid black;
+  border-radius: 0.5rem;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: subgrid;
+}
+
+.subgrid-item-heading {
+  grid-column: auto;
+  grid-row: 1;
+}
+.subgrid-item-heading p {
+  text-align: left;
+  height: 4rem;
+}
+.subgrid-item-heading h4:nth-of-type(2) {
+  text-align: center;
+}
+/* .subgrid-item-heading hr {
+  margin-bottom: 0.5rem;
+} */
+/* .subgrid-item-heading h3 {
+  display: block;
+  float: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */
+.subgrid-item-session {
+  padding: 1rem;
+  border: 0.1rem solid black;
+  border-radius: 0.5rem;
+
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
+
+  grid-column: 1;
+  grid-row: auto;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  display: inline-flex;
+  flex-direction: column;
+  background-color: white;
+}
+.subgrid-item-session p {
+  margin-bottom: 0.5rem;
+}
+
+/*  TODO If <5 rows, then hide topic (via Hugo logic) and also abbreviate title & set flex to row (by adding CSS class)  */
+.subgrid-item-compact {
+  flex-direction: row;
+  white-space: nowrap;
+  align-items: center;
+}
+.subgrid-item-compact h4, .subgrid-item-compact a {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 0.1rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.subgrid-item-compact p {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+}
+
+.nowrap {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+p.slot-container-item {
+  padding: 0.3rem;
+  margin-bottom: 0.1rem;
+  border: 0.1rem solid black;
+  border-radius: 0.5rem;
+  font-size: 0.8em;
+  /* font-size: clamp(0.8em, 0.8em, 1em); */
+}
+.slot-container {
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+  container-type: size;
+}

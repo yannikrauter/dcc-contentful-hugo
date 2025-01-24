@@ -1,0 +1,166 @@
+{{ $content := .Content }}
+
+{{ $numberOfTracks := 0 }}
+{{ $dayId := $.Scratch.Get "dayId" }}
+{{ range $trackElement := where $.Site.RegularPages "Type" "track" }}
+  {{ if eq $dayId $trackElement.Params.day.id }}
+    {{ $numberOfTracks = add $numberOfTracks 1 }}
+  {{ end }}
+{{ end }}
+    
+{{ $columnEndNumber := add $numberOfTracks 2 }}
+
+{{ $overallStartHour := 8 }}
+{{ $overallEndHour := 20 }}
+{{ $numberOfHours := sub $overallEndHour $overallStartHour }}
+{{ $numberOfHoursHalf := div $numberOfHours 2 }}
+{{ $minuteIncrementsWithinHour := 5 }}
+
+<div class="day-grid-container">
+  {{ range $index := seq $numberOfHoursHalf }}
+    {{ $lowerBound := add 2 (mul 24 (sub $index 1)) }}
+    {{ $upperBound := add 15 (mul 24 (sub $index 1)) }}
+    <div class="grid-item-background" style="grid-row: {{ $lowerBound }} / {{ $upperBound }}; grid-column: 1 / {{ $columnEndNumber }};">
+    </div>
+  {{ end }}
+
+  <div class="grid-item-timeslot" style="grid-column: 1;">
+    {{ range $index := seq $numberOfHours }}
+      {{ $lowerBound := add 2 (mul 12 (sub $index 1)) }}
+      {{ $upperBound := add 14 (mul 12 (sub $index 1)) }}
+      <div class="grid-item-time" style="grid-row: {{ $lowerBound }} / {{ $upperBound }};">
+        <hr>
+        {{ $hour := add (sub $overallStartHour 1) $index }}
+        {{ if lt $hour 10 }}
+          0{{ $hour }}:00
+        {{ else }}
+          {{ $hour }}:00
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+
+  {{ $currentTrackNumber := 0 }}
+  {{ range $trackElement := where $.Site.RegularPages "Type" "track" }}
+    {{ if eq $dayId $trackElement.Params.day.id }}
+      {{ $currentTrackNumber = add $currentTrackNumber 1 }}
+      <div class="grid-item-track" style="grid-column: {{ add 1 $currentTrackNumber }};">
+        <div class="subgrid-item-heading">
+          <h3>{{ $trackElement.Params.title }}</h3>
+          <h4>
+            {{ with $trackElement.Param "topic" }}
+              Topic: {{ . }}
+            {{ else }}
+              &nbsp;
+            {{ end }}
+          </h4>
+          <p>
+            {{ $sponsorsCounter := 0 }}
+            {{ range $sponsorElement := where $.Site.RegularPages "Type" "sponsor" }}
+              {{ range $sponsorElementTrack := $sponsorElement.Params.track }}
+                {{ if eq $trackElement.Params.defaultMetaFields.sys.id $sponsorElementTrack.id }}
+                  {{ $sponsorsCounter = add $sponsorsCounter 1 }}
+                {{ end }}
+              {{ end }}
+            {{ end }}
+            {{ if ne 0 $sponsorsCounter }}
+              Sponsored by:
+              <br>
+            {{ end }}
+            {{ range $sponsorElement := where $.Site.RegularPages "Type" "sponsor" }}
+              {{ range $sponsorElementTrack := $sponsorElement.Params.track }}
+                {{ if eq $trackElement.Params.defaultMetaFields.sys.id $sponsorElementTrack.id }}
+                  {{ $sponsorsCounter = sub $sponsorsCounter 1 }}
+                  {{ if eq 0 $sponsorsCounter }}
+                  <a href="{{ $sponsorElement.RelPermalink }}">{{ $sponsorElement.Params.title }}</a>
+                  {{ else }}
+                  <a href="{{ $sponsorElement.RelPermalink }}">{{ $sponsorElement.Params.title }}</a>, 
+                  {{ end }}
+                {{ end }}
+              {{ end }}
+            {{ end }}
+          </p>
+          <h4>Session(s)</h4>
+          <hr>
+        </div>
+        {{ $sessionsCounter := 0 }}
+        {{ range $sessionElement := sort (where $.Site.RegularPages "Type" "session") "Params.startTime" }}
+          {{ $sessionsCounter = add $sessionsCounter 1 }}
+          {{ if eq $trackElement.Params.defaultMetaFields.sys.id $sessionElement.Params.track.id }}
+
+            {{ $startHourAsInt := int (strings.TrimLeft "0" ((time.AsTime $sessionElement.Params.startTime).Format "15")) }}
+            {{ $startMinuteAsInt := int ((time.AsTime $sessionElement.Params.startTime).Format "4") }}
+            {{ $startMinuteOffset := div $startMinuteAsInt $minuteIncrementsWithinHour }}
+
+            {{ $endHourAsInt := int (strings.TrimLeft "0" ((time.AsTime $sessionElement.Params.endTime).Format "15")) }}
+            {{ $endMinuteAsInt := int ((time.AsTime $sessionElement.Params.endTime).Format "4") }}
+            {{ $endMinuteOffset := div $endMinuteAsInt $minuteIncrementsWithinHour }}
+
+            {{ $lowerBound := add 2 (mul 12 (sub $startHourAsInt $overallStartHour)) $startMinuteOffset }}
+            {{ $upperBound := add 3 (mul 12 (sub $endHourAsInt $overallStartHour)) $endMinuteOffset }}
+
+            {{ $sessionIncrements := sub $upperBound $lowerBound }}
+
+            {{ if lt $sessionIncrements 6 }}
+              <div class="subgrid-item-session subgrid-item-compact" style="grid-row: {{ $lowerBound }} / {{ $upperBound }};">
+                <a href="{{ $sessionElement.RelPermalink }}"><h4 title="{{ $sessionElement.Params.title }}">{{ $sessionElement.Params.title }}</h4></a>
+                <p>{{ (time.AsTime $sessionElement.Params.startTime).Format "15:04" }}-{{ (time.AsTime $sessionElement.Params.endTime).Format "15:04" }}</p>
+              </div>
+            {{ else }}
+              <div class="subgrid-item-session" style="grid-row: {{ $lowerBound }} / {{ $upperBound }};">
+                <a href="{{ $sessionElement.RelPermalink }}"><h4>{{ $sessionElement.Params.title }}</h4></a>
+                <p><b>{{ (time.AsTime $sessionElement.Params.startTime).Format "15:04" }} - {{ (time.AsTime $sessionElement.Params.endTime).Format "15:04" }}</b></p>
+                {{ with $sessionElement.Param "topic" }}
+                  <p class="nowrap" title="{{ . }}"><b>Topic:</b> {{ . }}</p>
+                {{ end }}
+                <div class="slot-container">
+                  {{ $slotsCounter := 0 }}
+                  {{ $linkedContentType := "slot" }}
+                  {{ range $slotElementFromAll := sort (where $.Site.RegularPages "Type" $linkedContentType) "Params.startTime" }}
+                    {{ if eq $sessionElement.Params.defaultMetaFields.sys.id $slotElementFromAll.Params.session.id }}
+                      {{ $personsPerSlotCounter := 0 }}
+                      {{ $linkedContentType := "person" }}
+                      {{ range $personElement := where $.Site.RegularPages "Type" $linkedContentType }}
+                        {{ $linkedContentType := "role" }}
+                        {{ range $roleElement := where $.Site.RegularPages "Type" $linkedContentType }}
+                          {{ if eq $personElement.Params.defaultMetaFields.sys.id $roleElement.Params.person.id }}
+                            {{ range $slotElementFromRole := $roleElement.Params.slot }}
+                              {{ if eq $slotElementFromAll.Params.defaultMetaFields.sys.id $slotElementFromRole.id }}
+                                {{ if eq $personsPerSlotCounter 0 }}
+                                  {{ $slotsCounter = add $slotsCounter 1 }}
+                                  <p class="slot-container-item nowrap" id="slot-element-{{ $slotsCounter }}-session-{{ $sessionsCounter }}">
+                                  {{ (time.AsTime $slotElementFromAll.Params.startTime).Format "15:04" }}-{{ (time.AsTime $slotElementFromAll.Params.endTime).Format "15:04" }}:
+                                  <a href="{{ $slotElementFromAll.RelPermalink }}" title="{{ $slotElementFromAll.Params.title }}">{{ $slotElementFromAll.Params.title }}</a>
+                                  <br>
+                                  by <a href="{{ $personElement.RelPermalink }}" title="{{ $personElement.Params.forenames }} {{ $personElement.Params.surnames }}">{{ $personElement.Params.forenames }} {{ $personElement.Params.surnames }}</a>,
+                                {{ else }}
+                                  <a href="{{ $personElement.RelPermalink }}" title="{{ $personElement.Params.forenames }} {{ $personElement.Params.surnames }}">{{ $personElement.Params.forenames }} {{ $personElement.Params.surnames }}</a>,
+                                {{ end }}
+                                {{ $personsPerSlotCounter = add $personsPerSlotCounter 1 }}
+                              {{ end }}
+                            {{ end }}
+                          {{ end }}
+                        {{ end }}
+                      {{ end }}
+                      </p>
+                      <script>
+                        if ("{{ $slotsCounter }}" != "0") {
+                          var content = document.getElementById("slot-element-{{ $slotsCounter }}-session-{{ $sessionsCounter }}").innerHTML;
+                          var lastIndex = content.lastIndexOf(',');
+                          document.getElementById("slot-element-{{ $slotsCounter }}-session-{{ $sessionsCounter }}").innerHTML = content.substring(0, lastIndex) + content.substring(lastIndex + 1);
+                        }
+                      </script>
+                    {{ end }}
+                  {{ end }}
+                </div>
+              </div>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </div>
+    {{ end }}
+  {{ end }}
+</div>
+
+{{/*  <div style="height: 10rem"></div>
+{{ partial "static-day" . }}  */}}

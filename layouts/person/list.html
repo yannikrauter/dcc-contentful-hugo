@@ -1,0 +1,52 @@
+{{ define "main" }}
+<main>
+  <header>
+    <h1>{{ .Title }}</h1>
+  </header>
+  {{ $speakerRoles := .Site.Params.speakerRoles }}
+  {{ $roleHeadingId := 0 }}
+  {{ $personsPerRoleHeadingCounter := 0 }}
+  {{ $previousRoleTitle := "" }}
+  {{ range $roleElement := where $.Site.RegularPages "Type" "role" }}
+    {{ if not (in $speakerRoles $roleElement.Params.title) }}
+      {{ with $roleElement.Param "person" }}
+        {{ if ne $previousRoleTitle $roleElement.Params.title }}
+          {{ $roleHeadingId = add $roleHeadingId 1 }}
+          {{ $personsPerRoleHeadingCounter = 0 }}
+          </ul>
+          <a href="{{ $roleElement.RelPermalink }}"><h4 id="role-heading-{{ $roleHeadingId }}">{{ $roleElement.Params.title }}</h4></a>
+          <ul class="compact">
+        {{ end }}
+        {{ $personElementFromRole := . }}
+        {{ range $personElementFromAll := $.Pages }}
+          {{ if eq $personElementFromAll.Params.defaultMetaFields.sys.id $personElementFromRole.id }}
+            <li>
+              <a href="{{ $personElementFromAll.RelPermalink }}">{{ $personElementFromAll.Params.forenames }} {{ $personElementFromAll.Params.surnames }}</a>
+            </li>
+            {{ $personsPerRoleHeadingCounter = add $personsPerRoleHeadingCounter 1 }}
+          {{ end }}
+        {{ end }}
+        {{ if ne $personsPerRoleHeadingCounter 1 }}
+          <script>
+            document.getElementById("role-heading-{{ $roleHeadingId }}").innerHTML = "{{ $roleElement.Params.title }}s";
+          </script>
+        {{ end }}
+        {{ $previousRoleTitle = $roleElement.Params.title }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  </ul>
+
+  {{/*  <p>List grouped by country, for demonstrative purposes only:</p>
+  {{ range .Pages.GroupByParam "country" }}
+    <h5>{{ .Key }}</h5>
+    <ul class="compact">
+      {{ range .Pages }}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .Params.forenames }} {{ .Params.surnames }}</a>
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}  */}}
+</main>
+{{ end }}

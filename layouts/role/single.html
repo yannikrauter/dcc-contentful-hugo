@@ -1,0 +1,40 @@
+{{ define "main" }}
+<main>
+  <article>
+    <header>
+      <h1 id="role-heading">{{ .Title }}</h1>
+    </header>
+    <p>Person(s) with this role:</p>
+    <ul class="compact">
+      {{ $roleTitle := .Title }}
+      {{ $rolesCounter := 0 }}
+      {{ range $roleElement := where $.Site.RegularPages "Type" "role" }}
+        {{ if eq $roleElement.Params.title $roleTitle }}
+          {{ $linkedContentType := "person" }}
+          {{ with .Param $linkedContentType }}
+            {{ $personElementFromRole := . }}
+            {{ range $personElementFromAll := where $.Site.RegularPages "Type" $linkedContentType }}
+              {{ if eq $personElementFromAll.Params.defaultMetaFields.sys.id $personElementFromRole.id }}
+                <li>
+                  <a href="{{ $personElementFromAll.RelPermalink }}">{{ $personElementFromAll.Params.forenames }} {{ $personElementFromAll.Params.surnames }}</a>
+                </li>
+                {{ $rolesCounter = add $rolesCounter 1 }}
+              {{ end }}
+            {{ end }}
+            {{ if ne $rolesCounter 1 }}
+              <script>
+                document.getElementById("role-heading").innerHTML = "{{ $.Title }}s";
+              </script>
+            {{ end }}
+          {{ else }}
+            </ul> <!-- Hack to prevent indentation -->
+            <p>
+              No {{ $linkedContentType }} is assigned to this {{ .Params.defaultMetaFields.sys.contentType }}.
+            </p>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </ul>
+  </article>
+</main>
+{{ end }}

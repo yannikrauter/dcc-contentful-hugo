@@ -1,0 +1,40 @@
+.DS_Store
+.hugo_build.lock
+.env
+package-lock.json
+/node_modules/
+/public/
+/resources/
+/static/assets
+
+# -----  Configuration for contentful-ssg.config.js  -----
+# ----- Note to any developer: Please read carfully! -----
+
+# Any files within the `content` directory which are ignored by this .gitignore
+# are removed by `contentful-ssg` when fetching content from Contentful.
+
+# Therefore, ignore all of the content files (meaning those files which
+# actually come from Contentful), but retain those files that were added
+# manually to structure the site built by Hugo.
+
+# Files to keep:
+#  - Anything at the root of the `content` directory
+#    (like registration, impressum, etc.).
+#  - Any `_index.md` files
+#    (even those inside any subdirectory of the `content` directory).
+
+# Due to a limitation with contentful-ssg, exception patterns are not
+# evaluated. Therefore, the `!` (exclamation mark symbol) cannot be used!
+
+/content/*/[a-zA-Z0-9]*
+# This pattern should mirror the one in `paths.content` in `gulpfile.js`!
+
+# The above glob pattern matches any file starting with a-zA-Z0-9,
+# regadless of the rest of its name.
+
+# This does not match files starting with `_`.
+# Therefore, `_index.md` will not be deleted.
+
+# Furthermore, the pattern is applied only to files within any subdirectory of
+# the `content` directory. This excludes files at the root of the
+# `content` directory, meaning `impressum.md` and the like will not be deleted.

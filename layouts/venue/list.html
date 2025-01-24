@@ -1,0 +1,26 @@
+{{ define "main" }}
+<main>
+  <header>
+    <h1>{{ .Title }}</h1>
+  </header>
+  {{ $linkedContentType := "room" }}
+  <ul>
+    {{ range $venueElement := .Pages }}
+      <li>
+        {{ $venueHasRooms := false }}
+        <a href="{{ .RelPermalink }}">{{ .Params.title }}</a>
+        <ul class="compact">
+          {{ range $roomElement := where $.Site.RegularPages "Type" $linkedContentType }}
+            {{ if eq $venueElement.Params.defaultMetaFields.sys.id $roomElement.Params.venue.id }}
+              {{ $venueHasRooms = true }}
+              <li>
+                Room: <a href="{{ $roomElement.RelPermalink }}">{{ $roomElement.Params.title }}</a>
+              </li>
+            {{ end }}
+          {{ end }}
+        </ul>
+      </li>
+    {{ end }}
+  </ul>
+</main>
+{{ end }}

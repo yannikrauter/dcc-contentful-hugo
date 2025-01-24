@@ -1,0 +1,133 @@
+{{ define "main" }}
+<link rel="stylesheet" property="stylesheet" href="{{ "css/slot.css" | relURL }}">
+<main>
+  <article>
+    <header>
+      <h1>{{ .Title }}</h1>
+      <div id="slot-materials">
+        <h3>Material(s)</h3>
+        {{ $materialsCounter := 0 }}
+        {{ $linkedContentType := "material" }}
+        <table>
+          {{ range $materialElement := where $.Site.RegularPages "Type" $linkedContentType }}
+            {{ if eq $.Params.defaultMetaFields.sys.id $materialElement.Params.slot.id }}
+              <tr>
+                <td>
+                  {{ with .Param "thumbnail" }}
+                    <a href="{{ $materialElement.Params.link }}" target="_blank">
+                      <img src="{{ .url }}">
+                    </a>
+                  {{ else }}
+                    <p>No image provided</p>
+                  {{ end }}
+                </td>
+                <td>
+                  {{ $materialElement.Params.format }}: <a href="{{ $materialElement.Params.link }}" target="_blank">{{ $materialElement.Params.title }}</a>
+                  <br>
+                  Download Link:
+                  {{ with .Param "link" }}
+                    <a href="{{ $materialElement.Params.link }}" target="_blank">{{ $materialElement.Params.link }}</a>
+                  {{ else }}
+                    No Link provided
+                  {{ end }}                  
+                </td>
+                {{ $materialsCounter = add $materialsCounter 1 }}
+              </tr>
+            {{ end }}
+          {{ end }}
+        </table>
+        {{ if eq 0 $materialsCounter }}
+          <p>
+            This {{ .Params.defaultMetaFields.sys.contentType }} has no {{ $linkedContentType }}s.
+          </p>
+        {{ end }}
+      </div>
+    </header>
+
+    <h4>Slot Details:</h4>
+    <div id="details">
+      <ul class="compact">
+        <li id="speakers-list">
+          <b>Speaker(s): </b>
+          {{ $linkedContentType := "person" }}
+          {{ range $personElement := where $.Site.RegularPages "Type" $linkedContentType }}
+            {{ $linkedContentType := "role" }}
+            {{ range $roleElement := where $.Site.RegularPages "Type" $linkedContentType }}
+              {{ if eq $personElement.Params.defaultMetaFields.sys.id $roleElement.Params.person.id }}
+                {{ range $slotElementFromRole := $roleElement.Params.slot }}
+                  {{ if eq $.Params.defaultMetaFields.sys.id $slotElementFromRole.id }}
+                    <a href="{{ $personElement.RelPermalink }}">{{ $personElement.Params.forenames }} {{ $personElement.Params.surnames }}</a>,
+                  {{ end }}
+                {{ end }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        </li>
+        <script>
+          var content = document.getElementById("speakers-list").innerHTML;
+          var lastIndex = content.lastIndexOf(',');
+          document.getElementById("speakers-list").innerHTML = content.substring(0, lastIndex) + content.substring(lastIndex + 1);
+        </script>
+
+        <li>
+          <b>Session: </b>
+          {{ $linkedSessionElement := "" }}
+          {{ $linkedContentType := "session" }}
+          {{ range $sessionElement := where $.Site.RegularPages "Type" $linkedContentType }}
+            {{ if eq $sessionElement.Params.defaultMetaFields.sys.id $.Params.session.id }}
+              <a href="{{ $sessionElement.RelPermalink }}">{{ $sessionElement.Params.title }}</a> ({{ $sessionElement.Params.format }})
+              {{ $linkedSessionElement = $sessionElement }}
+            {{ end }}
+          {{ end }}
+        </li>
+
+        <li>
+          <b>Date and Time: </b>
+          {{ $linkedContentType := "track" }}
+          {{ range $trackElement := where $.Site.RegularPages "Type" $linkedContentType }}
+            {{ if eq $trackElement.Params.defaultMetaFields.sys.id $linkedSessionElement.Params.track.id }}
+              {{ $linkedContentType := "day" }}
+              {{ range $dayElement := where $.Site.RegularPages "Type" $linkedContentType }}
+                {{ if eq $dayElement.Params.defaultMetaFields.sys.id $trackElement.Params.day.id }}
+                  <a href="{{ $dayElement.RelPermalink }}">{{ (time.AsTime $dayElement.Params.date).Format "Mon 02 Jan 2006" }}</a> at {{ (time.AsTime $.Params.startTime).Format "15:04" }}-{{ (time.AsTime $.Params.endTime).Format "15:04" }}
+                {{ end }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        </li>
+
+        <li>
+          <b>Room: </b>
+          {{ $linkedRoomElement := "" }}
+          {{ $linkedContentType := "room" }}
+          {{ range $roomElement := where $.Site.RegularPages "Type" $linkedContentType }}
+            {{ if eq $roomElement.Params.defaultMetaFields.sys.id $linkedSessionElement.Params.room.id }}
+              <a href="{{ $roomElement.RelPermalink }}">{{ $roomElement.Params.title }}</a>
+              {{ $linkedRoomElement = $roomElement }}
+            {{ end }}
+          {{ end }}
+        </li>
+
+        <li>
+          <b>Venue: </b>
+          {{ $linkedContentType := "venue" }}
+          {{ range $venueElement := where $.Site.RegularPages "Type" $linkedContentType }}
+            {{ if eq $venueElement.Params.defaultMetaFields.sys.id $linkedRoomElement.Params.venue.id }}
+              <a href="{{ $venueElement.RelPermalink }}">{{ $venueElement.Params.title }}</a>
+            {{ end }}
+          {{ end }}
+        </li>
+      </ul>
+    </div>
+
+    {{ with .Params.description }}
+      <h4>Description:</h4>
+      <div id="description">
+        <p>
+          {{ . | markdownify }}
+        </p>
+      </div>
+    {{ end }}
+  </article>
+</main>
+{{ end }}

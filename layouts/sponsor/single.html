@@ -1,0 +1,78 @@
+{{ define "main" }}
+<link rel="stylesheet" property="stylesheet" href="{{ "css/sponsor.css" | relURL }}">
+<main>
+  <article>
+    <header>
+      <h1>{{ .Title }}</h1>
+      <div id="sponsor-information-container">
+        <div id="sponsor-details-container">
+          <div id="sponsor-details-item">
+            <h3>{{ .Params.sponsorshipLevel }} Sponsor</h3>
+          </div>
+        </div>
+
+        <div id="sponsor-logo">
+          {{ with .Param "logo" }}
+            <img src="{{ .url }}">
+          {{ else }}
+            <p>No image provided</p>
+          {{ end }}
+        </div>
+
+        <div id="sponsor-contact-container">
+          <div id="sponsor-contact-item">
+            <h4>Web</h4>
+            <p>
+              {{ with .Param "websiteUrl" }}
+                <a href="{{ . }}" target="_blank">{{ . }}</a>
+              {{ else }}
+                No website URL provided
+              {{ end }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
+    <br>
+    <h3>Tracks</h3>
+    {{ $linkedContentType := "track" }}
+    {{ with .Param $linkedContentType }}
+      <ul class="compact">
+        {{ range $trackElementFromSponsor := . }}
+          {{ range $trackElementFromAll := where $.Site.RegularPages "Type" $linkedContentType }}
+            {{ if eq $trackElementFromAll.Params.defaultMetaFields.sys.id $trackElementFromSponsor.id }}
+              <li>
+                {{ $trackElementFromAll.Params.title }}
+              </li>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </ul>
+    {{ else }}
+      <p>
+        This {{ .Params.defaultMetaFields.sys.contentType }} supports no particular {{ $linkedContentType }}s!
+      </p>
+    {{ end }}
+    <br>
+    <h3>Sessions</h3>
+    {{ $linkedContentType := "session" }}
+    {{ with .Param $linkedContentType }}
+      <ul class="compact">
+        {{ range $sessionElementFromSponsor := . }}
+          {{ range $sessionElementFromAll := where $.Site.RegularPages "Type" $linkedContentType }}
+            {{ if eq $sessionElementFromAll.Params.defaultMetaFields.sys.id $sessionElementFromSponsor.id }}
+              <li>
+                <a href="{{ $sessionElementFromAll.RelPermalink }}">{{ $sessionElementFromAll.Params.title }}</a>
+              </li>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </ul>
+    {{ else }}
+      <p>
+        This {{ .Params.defaultMetaFields.sys.contentType }} supports no particular {{ $linkedContentType }}s!
+      </p>
+    {{ end }}
+  </article>
+</main>
+{{ end }}

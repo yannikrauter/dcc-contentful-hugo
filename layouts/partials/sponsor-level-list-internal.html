@@ -1,0 +1,12 @@
+{{ $sponsorshipLevel := $.Scratch.Get "sponsorshipLevel" }}
+{{ $headingLevel := $.Scratch.Get "headingLevel" }}
+<div>
+  {{ printf "<%s>" $headingLevel | safeHTML }}{{ $sponsorshipLevel }}{{ printf "</%s>" $headingLevel | safeHTML }}
+  <ul class="compact">
+    {{ range where .Site.RegularPages "Section" "sponsor" }}
+      {{ if eq .Params.sponsorshipLevel $sponsorshipLevel }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> (<a href="{{ .Params.websiteUrl }}" target="_blank">{{ .Params.websiteUrl }}</a>)</li>
+      {{ end }}
+    {{ end }}
+  </ul>
+</div>

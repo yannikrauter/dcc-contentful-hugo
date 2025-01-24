@@ -1,0 +1,31 @@
+#session-information-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+}
+
+#session-persons {
+  max-width: 25rem;
+  padding: 1rem;
+  border: 0.1rem solid black;
+  border-radius: 0.5rem;
+  flex-basis: 12rem;
+  flex-grow: 2;
+  flex-shrink: 0;
+  margin: 0 1rem 0 0;
+}
+
+#session-slots {
+  max-width: 50rem;
+  padding: 1rem;
+  border: 0.1rem solid black;
+  border-radius: 0.5rem;
+  flex-basis: 12rem;
+  flex-grow: 3;
+  flex-shrink: 0;
+}
+
+#details {
+  margin-bottom: 3rem;
+}

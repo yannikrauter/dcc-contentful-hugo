@@ -1,0 +1,21 @@
+{{ define "main" }}
+<main>
+  <header>
+    <h1>List of {{ .Title }}</h1>
+  </header>
+  <ul>
+    {{ range .Pages }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Params.title }}</a>
+      </li>
+    {{ end }}
+  </ul>
+  <br>
+  <code>
+    This is an instance of a default list page by Hugo, which should be inaccessible by the public.
+    <br>
+    <br>
+    In case you're seeing this, we would appreciate if you could reach out to us at <a href="mailto:{{ .Site.Params.contactEmail }}?subject=Exposed development page '{{ .RelPermalink }}'">{{ .Site.Params.contactEmail }}</a>.
+  </code>
+</main>
+{{ end }}

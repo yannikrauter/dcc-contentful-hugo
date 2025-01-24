@@ -1,0 +1,910 @@
+
+/* CSS 3 Standard Style Sheet */
+/* Keith Andrews */ 
+
+/* Fonts */
+
+
+/* for old browsers which do not support new HTML5 tags */
+section, article, header, footer, nav, aside, hgroup {
+  display: block;
+}
+
+
+body {
+  margin: 1em 5%;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 1em;
+  color: black;
+  background: white;
+  line-height: 1.3;
+  cursor: default;
+  hyphens: auto;    /* allow words to be broken at hyphenation points */
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+}
+
+
+a {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+a:link {color: blue}
+a:visited {color: purple}
+
+
+
+address {
+  margin: 0;
+  font: italic 1em/1 sans-serif;
+}
+
+
+article header {
+  margin: 0 0 3em 0;
+  text-align: center;
+}
+
+article header p {
+  text-align: center;
+}
+
+
+
+big {font-size: 1em}
+
+blockquote {margin: 1em 2em}
+
+
+button {cursor: auto}
+
+
+caption {
+  margin: 1em 1em 1em 1em;
+  text-align: left;
+}
+
+caption .label {font-weight: bold}
+
+
+code {
+  font-family: monospace;   /* dont override bold or italic */
+  font-size: 110%;
+}
+
+
+/* turn hyphens off for code, tt, and kbd */
+
+code, var, kbd, samp, listing, plaintext, xmp, abbr {
+  hyphens: none;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+}
+
+
+
+div {
+  margin: 0;
+  padding: 0;
+}
+
+div#whole {
+  margin: 0 auto 0 auto;
+  max-width: 60em;
+}
+
+
+
+div.table {
+  margin: 2em auto 1em auto;
+}
+
+div.figure {
+  margin: 2em auto 1em auto;
+}
+
+
+
+dl {
+  margin: 0.8em 0 1.2em 0;
+}
+
+dt {
+  margin: 0;
+  padding: 0 1em 0 0;
+}
+
+dd {
+  margin: 0 0 1em 0;
+  padding: 0;
+}
+
+
+
+em {font-style: italic;}
+
+
+h1 {
+  margin: 2em 0 0.7em 0;
+  font-weight: bold;
+  font-size: 180%;
+}
+
+h1.title {
+  margin: 1.5em 0 0.7em 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 180%;
+}
+
+h2 {
+  margin: 2em 0 0.7em 0;
+  font-weight: bold;
+  font-size: 160%;
+}
+
+h2.title {
+  margin: 1.5em 0 0.7em 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 160%;
+}
+
+h3 {
+  margin: 1.5em 0 0.7em 0;
+  font-weight: bold;
+  font-size: 140%;
+}
+
+h3.title {
+  margin: 1.5em 0 0.7em 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 120%;
+}
+
+h4 {
+  margin: 1em 0 0.5em 0;
+  font-weight: bold;
+  font-size: 110%;
+}
+
+h5 {
+  margin: 1em 0 0.5em 0;
+  font-weight: bold;
+}
+
+h6 {
+  margin: 1em 0 0.5em 0;
+  font-weight: bold;
+}
+
+
+hr {margin: 0;}
+
+html {
+  margin: 0;
+  background: white
+}
+
+
+img {
+  display: block;
+  border: none;
+}
+
+input {cursor: auto}
+
+kbd {font: 1em monospace}
+
+
+li {
+  margin: 0.5em 0 1.5em 0;
+  padding: 0;
+}
+
+ol {
+  margin: 0.5em 0 1em 0;
+  padding: 0 0 0 1.2em;
+  list-style: decimal;
+}
+
+ol.compact li, ul.compact li {
+  margin: 0 0 0.4em 0;
+}
+
+ol.loose > li, ul.loose > li {
+  margin: 0.5em 0 2.5em 0;
+}
+
+
+
+ul ul ol ol, ul ol ul ol, ol ul ol ol, ol ol ul ol, ol ul ol, ol ol {
+  list-style: lower-alpha;
+}
+
+ol ul ol ol, ol ol ul ol, ul ol ol ol, ol ol ol {
+  list-style: lower-roman;
+}
+
+ol ol ol ol {
+  list-style: decimal;
+}
+
+
+ul {
+  margin: 0.5em 0 1em 0;
+  padding: 0 0 0 1.2em;
+  list-style: disc;
+}
+
+ul ul, ol ol ul ul, ol ul ol ul, ul ol ol ul, ol ul ul, ul ol ul {
+  list-style: circle;
+}
+
+ol ul ul ul, ul ol ul ul, ul ul ol ul, ul ul ul {
+  list-style: square;
+}
+
+ul ul ul ul {
+  list-style: disc;
+}
+
+
+
+ol.nobullet, ul.nobullet {
+  padding: 0;
+}
+
+ol.nobullet li, ul.nobullet li {
+  list-style-type: none;
+}
+
+
+ol.small, ul.small {
+  font-size: 80%;
+}
+
+
+
+
+p {
+  margin: 0 0 1em 0;
+  padding: 0;
+  text-align: justify;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+p a[href] {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+
+p.quote {
+  background-color: #315b7f;
+  color: #d2e2e2;
+  padding: 2%;
+  font-style: italic;
+  font-size: 1.5em;
+  border: none;
+  margin: 3em 0 3em 0;
+}
+
+
+p.footer {
+  font-size: 60%;
+  margin: 3em 0 1em 0;
+  text-align: center;
+}
+
+footer {
+  font-size: 60%;
+  margin: 3em 0 1em 0;
+  text-align: center;
+}
+
+
+pre {
+/* font-size: 80%; */
+  margin: 1em 0 2em 0;
+  font-family: monospace;
+}
+
+
+samp {font: 1em monospace}
+
+small {font-size: 70%}
+
+sub {font-size: 60%}
+
+sup {font-size: 60%}
+
+
+
+table {
+  margin: 1em auto 0.5em auto;
+  caption-side: bottom;
+  border: 0.1em solid #777;
+  border-collapse: collapse;
+  empty-cells: show;
+  line-break: loose;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+th {
+  font-weight: bold;
+  background-color: #eee;
+  padding: 0.5ex;
+  border: 0.1em solid #777;
+  text-align: left;
+  vertical-align: top;
+}
+
+td {
+  padding: 0.5ex;
+  border: 0.1em solid #777;
+  text-align: left;
+  vertical-align: top;
+}
+
+td p {
+  margin: 0 0 0.5em 0;
+  text-align: left;
+}
+
+
+tfoot {
+  font-size: 70%;
+}
+
+a.tfootlink {
+  text-decoration: none;
+}
+
+
+
+table.borders th {
+  border: 0.1em solid #777;
+}
+
+table.borders td {
+  border: 0.1em solid #777;
+}
+
+th.number, th.right {
+  text-align: right;
+}
+
+td.number, td.right {
+  text-align: right;
+}
+
+
+tr {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+textarea {cursor: text}
+
+tt {font: 1em monospace}
+
+
+
+video {
+  display: block;
+  border: none;
+}
+
+
+
+
+
+.important {
+  color: red;
+  font-weight: bold;
+}
+
+.task {font-style: italic;}
+
+
+
+p.note {
+  font-size: 80%;
+  margin-top: -0.7em;
+}
+
+p.note:before {
+  content: "[" ;
+}
+
+p.note:after {
+  content: "]" ;
+}
+
+
+
+
+
+
+
+
+
+
+/* figures are put into single table cell for caption */
+
+/* obsolete  -- check if still in use?  */
+
+div.figure table {
+  border: none;
+}
+
+div.figure table td {
+  border: none;
+}
+
+
+
+/* new figure styling */
+
+figure {
+  margin: 2em auto;
+}
+
+div.inner-figure {
+  margin: 0 auto;
+  width: 80%;
+}
+
+div.inner-figure img {
+  margin: 0 auto;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 20em;
+}
+
+div.inner-figure video {
+  margin: 0 auto;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 20em;
+}
+
+
+
+figure.table table {
+  margin: 0 auto 0 auto;
+}
+
+
+figcaption {
+  margin: 1em auto;
+  text-align: center;
+  width: 80%;
+}
+
+figcaption .label {
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+table.noborders {
+  border: none;
+}
+
+table.noborders td {
+  border: none;
+}
+
+table.noborders table {
+  border: none;
+}
+
+
+
+
+table.tutorstable {
+  border: none;
+}
+
+table.tutorstable td {
+  border: none;
+}
+
+table.tutorstable table {
+  border: none;
+}
+
+table.tutorstable table img {
+  width: 100%;
+  height: auto;
+  max-width: 36em;
+  max-height: 27em;
+}
+
+
+
+
+
+
+
+
+table#video-settings-table {
+  margin: 2em 0 2em 0;
+  border-collapse: collapse;
+  font-size: 80%;
+}
+
+table#video-settings-table tr:nth-child(even) {
+  background: #EEE;
+}
+
+table#video-settings-table tr:nth-child(odd) {
+  background: #FFF;
+}
+
+
+
+
+table#audio-settings-table {
+  margin: 2em 0 2em 0;
+  border-collapse: collapse;
+  font-size: 80%;
+}
+
+table#audio-settings-table tr:nth-child(even) {
+  background: #EEE;
+}
+
+table#audio-settings-table tr:nth-child(odd) {
+  background: #FFF;
+}
+
+
+
+
+
+
+
+table.ratings {
+  font-size: 80%;
+}
+
+
+
+
+table.results-scheme {
+  margin: 2em 0 2em 0;
+  border-collapse: collapse;
+}
+
+table.results-scheme caption {
+  caption-side: bottom;
+  text-align: left;
+  font-size: 70%;
+  margin-top: 1ex;
+}
+
+table.results-scheme th {
+  border: 0.1em solid #555;
+  text-align: right;
+}
+
+table.results-scheme td {
+  border: 0.1em solid #555;
+  text-align: right;
+}
+
+
+
+table.results-maxpoints {
+  margin: 2em 0 2em 0;
+  border-collapse: collapse;
+}
+
+table.results-maxpoints caption {
+  caption-side: bottom;
+  text-align: left;
+  font-size: 70%;
+  margin-top: 1ex;
+}
+
+table.results-maxpoints th {
+  border: 0.1em solid #555;
+  text-align: right;
+}
+
+table.results-maxpoints td {
+  border: 0.1em solid #555;
+  text-align: right;
+}
+
+
+
+table.results-legend {
+  margin: 2em 0 2em 0;
+  border-collapse: collapse;
+}
+
+table.results-legend caption {
+  caption-side: bottom;
+  text-align: left;
+  font-size: 70%;
+  margin-top: 1ex;
+}
+
+table.results-legend th {
+  border: 0.1em solid #555;
+  text-align: left;
+}
+
+table.results-legend td {
+  border: 0.1em solid #555;
+  text-align: left;
+}
+
+
+
+
+
+table.results-points {
+  margin: 2em 0 2em 0;
+  border-collapse: collapse;
+}
+
+table.results-points caption {
+  caption-side: bottom;
+  text-align: left;
+  font-size: 70%;
+  margin-top: 1ex;
+}
+
+table.results-points th {
+  border: 0.1em solid #555;
+  text-align: right;
+}
+
+table.results-points td {
+  border: 0.1em solid #555;
+  text-align: right;
+}
+
+
+
+
+table.tasktable {
+  margin: 2em auto 1em auto;
+  border-collapse: collapse;
+  font-size: 80%;
+}
+
+table.tasktable th {
+  border: 0.1em solid #555;
+  vertical-align: top;
+}
+
+table.tasktable td {
+  border: 0.1em solid #555;
+  vertical-align: top;
+}
+
+
+
+
+table#alltasks {
+  margin: 3em auto 2em auto;
+  border-collapse: collapse;
+}
+
+
+
+
+
+table.tree-structure {
+  margin: 2em auto 1em auto;
+  border-collapse: collapse;
+  font-size: 60%;
+}
+
+table.tree-structure th {
+  border: 0.1em solid #555;
+  vertical-align: top;
+}
+
+table.tree-structure td {
+  border: 0.1em solid #555;
+  vertical-align: top;
+}
+
+
+
+
+
+.plag { 
+  color: red; 
+  font-weight: bold; 
+  background: white; 
+}
+
+.fake { 
+  font-style: italic;
+}
+
+
+
+
+table.treetable {
+  margin: 2em auto 1em auto;
+  border-collapse: collapse;
+  font-size: 80%;
+}
+
+
+
+
+ul.booklist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-end;
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+li.bookitem {
+  margin-right: 1em;
+}
+
+li.bookitem img {
+  border: solid #444;
+  border-width: 0.05em;
+  height: 6em;
+}
+
+
+
+
+
+
+pre.namelist {
+/*  font-size: 90%; */
+  margin: 1em 0 3em 1em;
+}
+
+
+
+.instructions {
+  color: olive;
+}
+
+
+
+blockquote.example {
+  background: #f3f3f3;
+}
+
+
+
+.liintro {
+  font-style: italic;
+}
+
+/*
+.liintro:after {
+  font-style: normal;
+  content: ':';
+}
+*/
+
+
+.liheading {
+  font-weight: bold;
+}
+
+.liheading:after {
+  content: '\A\A';
+  white-space: pre;
+}
+
+
+
+pre.titleframe {
+  display: inline-block;
+  text-align: center;
+  font-size: 90%;
+  border: 0.1em solid;
+  padding: 1em;
+  margin: 0 0 0 2em;
+}
+
+
+
+.centred {
+  text-align: center;
+}
+
+.smaller {
+  font-size: 80%;
+}
+
+
+
+
+
+
+div.posters {
+  margin: 0 0 1em 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+
+div.posters img {
+  max-width: 100%;
+  max-height: 10em;
+  width: auto;
+  height: 10em;
+  margin-right: 1em;
+}
+
+
+
+
+/* CSS for mobile */
+@media screen and (max-width: 600px) {
+  table {
+    border: none;
+  }
+
+  .table table, .table tbody, .table tbody tr, .table caption {
+    display: flex;
+    flex-direction: column;
+    word-break: break-all;
+  }
+
+  .table table, .table tbody, .table th {
+    border: none;
+  }
+
+  .table tbody tr {
+    margin-bottom: 1em;
+    border: 0.05em solid black;
+  }
+
+  .table tbody td::before {
+    font-weight: bold;
+    font-size: 1.1em;
+    display: block;
+  }
+
+  .table thead {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .table tbody td::before {
+    display: none;
+  }
+}

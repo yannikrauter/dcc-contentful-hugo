@@ -1,0 +1,45 @@
+#room-information-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+}
+
+#room-location {
+  max-width: 40rem;
+  padding: 1rem;
+  border: 0.1rem solid black;
+  border-radius: 0.5rem;
+  flex-basis: 12rem;
+  flex-grow: 3;
+  flex-shrink: 0;
+  margin: 0 1rem 1rem 0;
+}
+
+#room-capacity {
+  max-width: 15rem;
+  padding: 1rem;
+  border: 0.1rem solid black;
+  border-radius: 0.5rem;
+  flex-basis: 2rem;
+  flex-grow: 1;
+  flex-shrink: 0;
+  margin: 0 1rem 1rem 0;
+}
+
+#room-wheelchair-accessible {
+  max-width: 40rem;
+  padding: 1rem;
+  border: 0.1rem solid black;
+  border-radius: 0.5rem;
+  flex-basis: 12rem;
+  flex-grow: 3;
+  flex-shrink: 0;
+  margin: 0 0 1rem 0;
+
+  min-height: 8rem;
+}
+
+#description {
+  margin-bottom: 3rem;
+}

@@ -1,0 +1,1732 @@
+{
+  "contentTypes": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8au3rnz56kwt"
+          }
+        },
+        "id": "event",
+        "type": "ContentType",
+        "createdAt": "2023-04-11T18:46:43.980Z",
+        "updatedAt": "2024-02-16T12:20:31.050Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 19,
+        "publishedAt": "2024-02-16T12:20:31.050Z",
+        "firstPublishedAt": "2023-04-11T18:46:44.306Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "publishedCounter": 10,
+        "version": 20,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/8au3rnz56kwt/environments/master/content_types/event"
+      },
+      "displayField": "title",
+      "name": "Event",
+      "description": "",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "startDate",
+          "name": "Start Date",
+          "type": "Date",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "endDate",
+          "name": "End Date",
+          "type": "Date",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "city",
+          "name": "City",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "country",
+          "name": "Country",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "topics",
+          "name": "Topics",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 1500
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "capacity",
+          "name": "Capacity",
+          "type": "Integer",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "websiteUrl",
+          "name": "Website URL",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8au3rnz56kwt"
+          }
+        },
+        "id": "person",
+        "type": "ContentType",
+        "createdAt": "2023-06-12T21:00:27.382Z",
+        "updatedAt": "2024-02-15T09:36:39.474Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 33,
+        "publishedAt": "2024-02-15T09:36:39.474Z",
+        "firstPublishedAt": "2023-06-12T21:00:27.834Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "publishedCounter": 17,
+        "version": 34,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/8au3rnz56kwt/environments/master/content_types/person"
+      },
+      "displayField": "surnames",
+      "name": "Person",
+      "description": "",
+      "fields": [
+        {
+          "id": "surnames",
+          "name": "Surname(s)",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "forenames",
+          "name": "Forename(s)",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "street",
+          "name": "Street",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "city",
+          "name": "City",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "country",
+          "name": "Country",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "jobTitle",
+          "name": "Job Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "affiliation",
+          "name": "Affiliation",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "biography",
+          "name": "Biography",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 1500
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "picture",
+          "name": "Picture",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkMimetypeGroup": [
+                "image"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        },
+        {
+          "id": "emailAddress",
+          "name": "Email Address",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "phoneNumber",
+          "name": "Phone Number",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "socialHandle",
+          "name": "Social Handle",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "websiteUrl",
+          "name": "Website URL",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8au3rnz56kwt"
+          }
+        },
+        "id": "role",
+        "type": "ContentType",
+        "createdAt": "2023-06-22T15:52:11.297Z",
+        "updatedAt": "2024-01-31T13:33:40.275Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 31,
+        "publishedAt": "2024-01-31T13:33:40.275Z",
+        "firstPublishedAt": "2023-06-22T15:52:11.822Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "publishedCounter": 16,
+        "version": 32,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/8au3rnz56kwt/environments/master/content_types/role"
+      },
+      "displayField": "title",
+      "name": "Role",
+      "description": "",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "in": [
+                "Keynote Speaker",
+                "Speaker",
+                "General Chair",
+                "Papers Chair",
+                "Posters Chair",
+                "Publicity Chair",
+                "Local Chair",
+                "Web Chair",
+                "Track Chair",
+                "Session Chair",
+                "Volunteer"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "event",
+          "name": "Event",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkContentType": [
+                "event"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "person",
+          "name": "Person",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "person"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "slot",
+          "name": "Slot",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "slot"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "session",
+          "name": "Session",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "session"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "track",
+          "name": "Track",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "track"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8au3rnz56kwt"
+          }
+        },
+        "id": "venue",
+        "type": "ContentType",
+        "createdAt": "2023-06-22T15:54:57.480Z",
+        "updatedAt": "2024-02-16T12:24:07.793Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 25,
+        "publishedAt": "2024-02-16T12:24:07.793Z",
+        "firstPublishedAt": "2023-06-22T15:54:57.918Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "publishedCounter": 13,
+        "version": 26,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/8au3rnz56kwt/environments/master/content_types/venue"
+      },
+      "displayField": "title",
+      "name": "Venue",
+      "description": "",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "street",
+          "name": "Street",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "city",
+          "name": "City",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "country",
+          "name": "Country",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 1500
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "totalCapacity",
+          "name": "Total Capacity",
+          "type": "Integer",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "pictures",
+          "name": "Picture(s)",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkMimetypeGroup": [
+                  "image"
+                ]
+              }
+            ],
+            "linkType": "Asset"
+          }
+        },
+        {
+          "id": "googleMapsLink",
+          "name": "Google Maps Link",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "directions",
+          "name": "Directions",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 1500
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "websiteUrl",
+          "name": "Website URL",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "event",
+          "name": "Event",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkContentType": [
+                "event"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8au3rnz56kwt"
+          }
+        },
+        "id": "room",
+        "type": "ContentType",
+        "createdAt": "2023-06-22T16:01:03.198Z",
+        "updatedAt": "2024-02-16T12:21:55.130Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 13,
+        "publishedAt": "2024-02-16T12:21:55.130Z",
+        "firstPublishedAt": "2023-06-22T16:01:03.765Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "publishedCounter": 7,
+        "version": 14,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/8au3rnz56kwt/environments/master/content_types/room"
+      },
+      "displayField": "location",
+      "name": "Room",
+      "description": "",
+      "fields": [
+        {
+          "id": "location",
+          "name": "Location",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 1500
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "capacity",
+          "name": "Capacity",
+          "type": "Integer",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "wheelchairAccess",
+          "name": "Wheelchair Access",
+          "type": "Boolean",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "venue",
+          "name": "Venue",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkContentType": [
+                "venue"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8au3rnz56kwt"
+          }
+        },
+        "id": "sponsor",
+        "type": "ContentType",
+        "createdAt": "2023-06-22T16:39:37.992Z",
+        "updatedAt": "2024-02-15T09:37:15.068Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 13,
+        "publishedAt": "2024-02-15T09:37:15.068Z",
+        "firstPublishedAt": "2023-06-22T16:39:38.327Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "publishedCounter": 7,
+        "version": 14,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/8au3rnz56kwt/environments/master/content_types/sponsor"
+      },
+      "displayField": "name",
+      "name": "Sponsor",
+      "description": "",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "sponsorshipLevel",
+          "name": "Sponsorship Level",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "in": [
+                "Platinum",
+                "Gold",
+                "Silver"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "logo",
+          "name": "Logo",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkMimetypeGroup": [
+                "image"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        },
+        {
+          "id": "websiteUrl",
+          "name": "Website URL",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "event",
+          "name": "Event",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkContentType": [
+                "event"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "track",
+          "name": "Track",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "track"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "session",
+          "name": "Session",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "session"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8au3rnz56kwt"
+          }
+        },
+        "id": "track",
+        "type": "ContentType",
+        "createdAt": "2023-06-22T18:31:25.106Z",
+        "updatedAt": "2024-02-16T12:09:52.547Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 15,
+        "publishedAt": "2024-02-16T12:09:52.547Z",
+        "firstPublishedAt": "2023-06-22T18:31:25.552Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "publishedCounter": 8,
+        "version": 16,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/8au3rnz56kwt/environments/master/content_types/track"
+      },
+      "displayField": "title",
+      "name": "Track",
+      "description": "",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "topic",
+          "name": "Topic",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 1500
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "day",
+          "name": "Day",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkContentType": [
+                "day"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8au3rnz56kwt"
+          }
+        },
+        "id": "day",
+        "type": "ContentType",
+        "createdAt": "2023-06-22T18:32:48.120Z",
+        "updatedAt": "2023-11-16T22:10:37.850Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2023-11-16T22:10:37.850Z",
+        "firstPublishedAt": "2023-06-22T18:32:48.532Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "publishedCounter": 4,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/8au3rnz56kwt/environments/master/content_types/day"
+      },
+      "displayField": null,
+      "name": "Day",
+      "description": "",
+      "fields": [
+        {
+          "id": "date",
+          "name": "Date",
+          "type": "Date",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "weight",
+          "name": "Weight",
+          "type": "Integer",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": true
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8au3rnz56kwt"
+          }
+        },
+        "id": "session",
+        "type": "ContentType",
+        "createdAt": "2023-06-22T18:39:50.415Z",
+        "updatedAt": "2024-02-16T12:11:55.670Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 21,
+        "publishedAt": "2024-02-16T12:11:55.670Z",
+        "firstPublishedAt": "2023-06-22T18:39:50.954Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "publishedCounter": 11,
+        "version": 22,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/8au3rnz56kwt/environments/master/content_types/session"
+      },
+      "displayField": "title",
+      "name": "Session",
+      "description": "",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "format",
+          "name": "Format",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "in": [
+                "Registration",
+                "Opening",
+                "Closing",
+                "Papers",
+                "Posters",
+                "Opening Keynote",
+                "Closing Keynote",
+                "Gala Dinner",
+                "Lunch Break",
+                "Coffee Break"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "startTime",
+          "name": "Start Time",
+          "type": "Date",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "endTime",
+          "name": "End Time",
+          "type": "Date",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "topic",
+          "name": "Topic",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 1500
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "streamUrl",
+          "name": "Stream URL",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "room",
+          "name": "Room",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkContentType": [
+                "room"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "track",
+          "name": "Track",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkContentType": [
+                "track"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8au3rnz56kwt"
+          }
+        },
+        "id": "slot",
+        "type": "ContentType",
+        "createdAt": "2023-06-22T18:52:07.540Z",
+        "updatedAt": "2024-08-09T08:30:31.806Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 27,
+        "publishedAt": "2024-08-09T08:30:31.806Z",
+        "firstPublishedAt": "2023-06-22T18:52:07.893Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "publishedCounter": 14,
+        "version": 28,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/8au3rnz56kwt/environments/master/content_types/slot"
+      },
+      "displayField": "title",
+      "name": "Slot",
+      "description": "",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "startTime",
+          "name": "Start Time",
+          "type": "Date",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "endTime",
+          "name": "End Time",
+          "type": "Date",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 1500
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "session",
+          "name": "Session",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkContentType": [
+                "session"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8au3rnz56kwt"
+          }
+        },
+        "id": "material",
+        "type": "ContentType",
+        "createdAt": "2023-06-22T18:52:32.231Z",
+        "updatedAt": "2024-06-26T08:31:31.484Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 27,
+        "publishedAt": "2024-06-26T08:31:31.484Z",
+        "firstPublishedAt": "2023-06-22T18:52:32.508Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "publishedCounter": 14,
+        "version": 28,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7saRWGyzb8AJmchclIm6ls"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/8au3rnz56kwt/environments/master/content_types/material"
+      },
+      "displayField": "title",
+      "name": "Material",
+      "description": "",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "format",
+          "name": "Format",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "in": [
+                "Paper",
+                "Video",
+                "Slide Deck",
+                "Handout"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "filetype",
+          "name": "Filetype",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "in": [
+                "PDF",
+                "MP4",
+                "WebM",
+                "PowerPoint",
+                "Keynote",
+                "Other"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 1500
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "abstract",
+          "name": "Abstract",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 1500
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "thumbnail",
+          "name": "Thumbnail",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        },
+        {
+          "id": "link",
+          "name": "Link",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "doi",
+          "name": "DOI",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "slot",
+          "name": "Slot",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkContentType": [
+                "slot"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        }
+      ]
+    }
+  ]
+}

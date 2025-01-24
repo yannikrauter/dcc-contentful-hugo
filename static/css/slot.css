@@ -1,0 +1,26 @@
+#slot-materials {
+  padding: 1rem;
+  border: 0.1rem solid black;
+  border-radius: 0.5rem;
+  flex-basis: 12rem;
+  flex-grow: 2;
+  flex-shrink: 0;
+  margin: 0 1rem 0 0;
+}
+
+#slot-materials table {
+  margin: 0;
+  border: none;
+}
+#slot-materials td {
+  padding-top: 0.7rem;
+  border: none;
+  vertical-align: middle;
+}
+#slot-materials img {
+  height: 2.5rem;
+}
+
+#details {
+  margin-bottom: 3rem;
+}

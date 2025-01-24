@@ -1,0 +1,18 @@
+{{ define "main" }}
+<main>
+  <header>
+    <h1>{{ .Title }}</h1>
+  </header>
+  {{ $.Scratch.Set "sponsorshipLevel" "Platinum" }}
+  {{ $.Scratch.Set "headingLevel" "h2" }}
+  {{ partial "sponsor-level-list-internal" . }}
+
+  {{ $.Scratch.Set "sponsorshipLevel" "Gold" }}
+  {{ $.Scratch.Set "headingLevel" "h3" }}
+  {{ partial "sponsor-level-list-internal" . }}
+
+  {{ $.Scratch.Set "sponsorshipLevel" "Silver" }}
+  {{ $.Scratch.Set "headingLevel" "h4" }}
+  {{ partial "sponsor-level-list-internal" . }}
+</main>
+{{ end }}

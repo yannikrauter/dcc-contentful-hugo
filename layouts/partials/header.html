@@ -1,0 +1,51 @@
+<header>
+  <div id="banner">
+    <div id="logo">
+      <a href="/" title="{{ .Site.Params.shortTitle }}"><img src="{{"header/uxd2017-logo.svg" | relURL}}" alt="{{ .Site.Params.shortTitle }} Logo" class="logo"></a>
+    </div>
+    <div id="title">
+      <h1>{{ .Site.Params.shortTitle }}</h1>
+      <div id="tagline">
+        {{ .Site.Params.shortTitle }} is a community event for practitioners of user 
+        experience, interaction design, and usability in and around Graz, 
+        Austria.
+      </div>
+    </div>
+    <div id="uxg-logo">
+      <a href="https://uxgraz.isds.tugraz.at/" target="_blank" title="UX Graz Community">
+      <img src="{{"header/uxg-logo.svg" | relURL}}" alt="UX Graz Logo" class="logo"></a>
+    </div>
+  </div>
+
+  {{ with .Site.Menus.main }}
+    <nav class="navigation">
+      <button class="hamburger" onclick=hamburgerToggle()>
+        <img src="{{"navigation/menu-icon-dark.svg" | relURL}}" alt="hamburger menu" class="hamburger-icon">
+      </button>
+      {{ range . }}
+        <div class="dropdown">
+          {{ if gt (len .Children) 0 }}
+            <a class="dropbtn" alt="dropdown menu link" href="{{ .URL | relURL }}">
+              {{ .Name }}
+              <img id="dropdownArrowDark" src="{{"navigation/down-arrow-dark.svg" | relURL}}" alt="down arrow" class="icon">
+            </a>
+            <div class="dropdown-content">
+              {{ $parentName := .Name }}
+              {{ range .Children }}
+                {{ if eq $parentName "Programme" }}
+                  <a href="{{ .URL | relURL }}">{{ time.Format "Mon 02 Jan 2006" .Page.Params.date }}</a>
+                {{ else }}
+                  <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+                {{ end }}
+              {{ end }}
+            </div>
+          {{ else }}
+            {{ if gt (len .Params) 0 }}
+              <a class="dropbtn" href="{{ .URL | relURL }}">{{ .Name }}</a>
+            {{ end }}
+          {{ end }}
+        </div>
+      {{ end }}
+    </nav>
+  {{ end }}
+</header>

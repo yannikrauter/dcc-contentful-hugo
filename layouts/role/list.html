@@ -1,0 +1,8 @@
+{{ define "main" }}
+<main>
+  <header>
+    <h1>{{ .Title }}</h1>
+  </header>
+  Please refer to the <a href="{{ "/person" | relURL }}">Team</a> or <a href="{{ "/speaker" | relURL }}">Speakers</a> pages for an overview of persons involved in the event, along with their respective roles!
+</main>
+{{ end }}

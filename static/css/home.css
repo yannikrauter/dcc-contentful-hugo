@@ -1,0 +1,42 @@
+.page-heading {
+  font-size: 1.4em;
+  margin: 0 0 0.7rem 0;
+}
+
+.important {
+  color: red;
+  font-weight: bold;
+}
+
+div#container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+div#info h2 {
+  font-size: 1.2em;
+  margin: 2rem 0 1.2rem 0;
+}
+
+div#info h3 {
+  font-size: 1em;
+  margin: 2rem 0 1rem 0;
+}
+
+div#supporters {
+  flex-basis: 22rem;
+  flex-shrink: 0;
+  margin-left: 3rem;
+}
+
+#supporters div {
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+#supporters div h3, h4, h5 {
+  margin-top: 0px;
+}

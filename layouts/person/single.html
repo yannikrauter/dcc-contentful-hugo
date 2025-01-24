@@ -1,0 +1,119 @@
+{{ define "main" }}
+<link rel="stylesheet" property="stylesheet" href="{{ "css/person.css" | relURL }}">
+<main>
+  <article>
+    <header>
+      <h1>{{ .Title }}</h1>
+
+      <div id="person-information-container">
+        <div id="person-details">
+          {{ with .Param "jobTitle" }}
+            <h2>{{ . }}</h2>
+          {{ else }}
+            <p>No job title provided</p>
+          {{ end }}
+          {{ with .Param "affiliation" }}
+            <h3>{{ . }}</h3>
+          {{ else }}
+            <p>No affiliation provided</p>
+          {{ end }}
+          <br>
+          {{ $rolesCounter := 0 }}
+          {{ range $roleElement := where $.Site.RegularPages "Type" "role" }}
+            {{ if eq $.Params.defaultMetaFields.sys.id $roleElement.Params.person.id }}
+              {{ $rolesCounter = add $rolesCounter 1 }}
+            {{ end }}
+          {{ end }}
+          {{ if eq 0 $rolesCounter }}
+            <h4>Role:</h4>
+            <p>This person has no role.</p>
+          {{ else if eq 1 $rolesCounter }}
+            <h4>Role:</h4>
+          {{ else }}
+            <h4>Roles:</h4>
+          {{ end }}
+          <p>
+            {{ range $index, $roleElement := where $.Site.RegularPages "Type" "role" }}
+              {{ if eq $.Params.defaultMetaFields.sys.id $roleElement.Params.person.id }}
+                {{ $rolesCounter = sub $rolesCounter 1 }}
+                {{ if eq 0 $rolesCounter }}
+                  <a href="{{ .RelPermalink }}">{{ .Params.title }}</a>
+                {{ else }}
+                  <a href="{{ .RelPermalink }}">{{ .Params.title }}</a>, 
+                {{ end }}
+              {{ end }}
+            {{ end }}
+          </p>
+        </div>
+
+        <div id="person-photo">
+          {{ with .Param "picture" }}
+            <img src="{{ .url }}">
+          {{ else }}
+            <p>No image provided</p>
+          {{ end }}
+        </div>
+
+        <div id="person-contact-container">
+          <div id="person-contact-item">
+            <h4>Web</h4>
+            <p>
+              {{ with .Param "websiteUrl" }}
+                <a href="{{ . }}" target="_blank">{{ . }}</a>
+              {{ else }}
+                No website URL provided
+              {{ end }}
+            </p>
+            <br>
+            <br>
+            <h4>Social</h4>
+            <p>
+              {{ with .Param "socialHandle" }}
+                {{ . }}
+              {{ else }}
+                No social handle provided
+              {{ end }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div id="biography">
+      {{ .Params.biography | markdownify }}
+    </div>
+    <br>
+    <h3>Session(s)</h3>
+    {{ $sessionsCounter := 0 }}
+    {{ $linkedContentType := "session" }}
+    <ul class="compact" id="roles-list">
+      {{ range $roleElement := where $.Site.RegularPages "Type" "role" }}
+        {{ if eq $.Params.defaultMetaFields.sys.id $roleElement.Params.person.id }}
+          <li>
+            As <a href="{{ $roleElement.RelPermalink }}">{{ $roleElement.Params.title }}</a>:
+          </li>
+          <ul class="compact">
+            {{ range $sessionElementFromRole := $roleElement.Params.session }}
+              {{ range $sessionElementFromAll := where $.Site.RegularPages "Type" $linkedContentType }}
+                {{ if eq $sessionElementFromAll.Params.defaultMetaFields.sys.id $sessionElementFromRole.id }}
+                <li>
+                  <a href="{{ $sessionElementFromAll.RelPermalink }}">{{ $sessionElementFromAll.Params.title }}</a>
+                  {{ $sessionsCounter = add $sessionsCounter 1 }}
+                </li>
+                {{ end }}
+              {{ end }}
+            {{ end }}
+          </ul>
+        {{ end }}
+      {{ end }}
+    </ul>
+    {{ if eq 0 $sessionsCounter }}
+      <script>
+        document.getElementById("roles-list").innerHTML = "";
+      </script>
+      <p>
+        This {{ .Params.defaultMetaFields.sys.contentType }} does not participate in any {{ $linkedContentType }}.
+      </p>
+    {{ end }}
+  </article>
+</main>
+{{ end }}
